@@ -18,7 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //CHALLENGE 2
-
+  fetch(breedUrl)
+  .then(res => res.json())
+  .then(dogBreeds => {
+    // console.log("BREEDURL DATA", dogBreeds.message); //Obj, where key is breed and value is [];
+    for (let breed in dogBreeds.message) {
+      // console.log("BREED ", breed);
+      let breedNode = document.createElement("li");
+      breedNode.innerText = breed;
+      document.getElementById("dog-breeds").appendChild(breedNode);
+    }
+  });
 
 
 
