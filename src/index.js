@@ -23,10 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
   .then(dogBreeds => {
     // console.log("BREEDURL DATA", dogBreeds.message); //Obj, where key is breed and value is [];
     for (let breed in dogBreeds.message) {
-      // console.log("BREED ", breed);
       let breedNode = document.createElement("li");
       breedNode.innerText = breed;
       document.getElementById("dog-breeds").appendChild(breedNode);
+
+      //CHALLENGE 3
+      breedNode.addEventListener("click", () => {
+        console.log("I clicked a breed!", breedNode);
+        breedNode.setAttribute("style", "color: red");
+      });
     }
   });
 
